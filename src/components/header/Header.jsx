@@ -1,0 +1,34 @@
+import './Header.css'
+import { NavLink } from 'react-router-dom'
+import styled from "styled-components";
+
+const StyledLink = styled(NavLink)`
+cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    color: #facc15;
+  }
+
+  &.active {
+    color: #facc15;
+    font-weight: bold;
+  }
+`;
+export const Header = () => {
+    return (
+        <header className="header">
+            <div className="container">
+                <div className='wrapperHeader'>
+                    <h2 className="logo">🎬 MovieApp</h2>
+                    <ul className="nav">
+                        <StyledLink to="/main-page">Home</StyledLink>
+                        <StyledLink to="/search">Movies</StyledLink>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    )
+}
