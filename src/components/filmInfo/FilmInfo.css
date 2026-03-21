@@ -16,8 +16,8 @@
 .film-detail {
   padding: 65px 0;
   background: linear-gradient(180deg, #020617, #020617 60%, #000);
-  height: 657px;
-  padding-bottom: 65px;
+  min-height: 657px;
+  padding-bottom: 90px;
 }
 
 .container {
@@ -133,6 +133,7 @@
 }
 
 .btn {
+  text-decoration: none;
   padding: 12px 20px;
   border: none;
   border-radius: 12px;

@@ -49,16 +49,20 @@ export const FilmInfo = () => {
                                 ← Back
                             </NavLink>
                             <NavLink onClick={() => {
-                                window.scrollTo({
-                                    top: 750,
-                                    behavior: "smooth"
-                                })
+                                setTimeout(() => {
+                                    window.scrollTo({
+                                        top: 750,
+                                        behavior: "smooth"
+                                    })
+                                }, 300)
                             }} to="casts" className="btn">Casts</NavLink>
                             <NavLink onClick={() => {
-                                window.scrollTo({
-                                    top: 750,
-                                    behavior: "smooth"
-                                })
+                                setTimeout(() => {
+                                    window.scrollTo({
+                                        top: 750,
+                                        behavior: "smooth"
+                                    })
+                                }, 300)
                             }} to="reviews" className="btn">Reviews</NavLink>
                         </div>
                     </div>
