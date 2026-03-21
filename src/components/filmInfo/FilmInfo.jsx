@@ -1,12 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { NavLink, Outlet } from "react-router-dom"
 import noImage from '../../img/noImage.png'
 import './FilmInfo.css'
 export const FilmInfo = () => {
     const { id } = useParams()
     const [detail, setDetail] = useState([])
+    const navigate = useNavigate()
 
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
 
@@ -45,7 +46,7 @@ export const FilmInfo = () => {
                             </div>
                         </div>
                         <div className="btnWrapper">
-                            <NavLink to="/movies" className="btn3">
+                            <NavLink className="btn3" onClick={() => navigate(-1)}>
                                 ← Back
                             </NavLink>
                             <NavLink onClick={() => {
