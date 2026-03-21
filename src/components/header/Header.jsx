@@ -22,9 +22,9 @@ export const Header = () => {
         <header className="header">
             <div className="container">
                 <div className='wrapperHeader'>
-                    <NavLink to="/main-page" className="logo">🎬 MovieApp</NavLink>
+                    <NavLink to="/" className="logo">🎬 MovieApp</NavLink>
                     <ul className="nav">
-                        <StyledLink to="/main-page">Home</StyledLink>
+                        <StyledLink to="/">Home</StyledLink>
                         <StyledLink to="/search">Movies</StyledLink>
                     </ul>
                 </div>
