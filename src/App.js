@@ -4,6 +4,8 @@ import { Search } from "./components/search/Search";
 import { Routes, Route } from "react-router-dom";
 import { NotFound } from "./components/notFound/NotFound";
 import { FilmInfo } from "./components/filmInfo/FilmInfo";
+import { Casts } from "./components/casts/Casts";
+import { Reviews } from "./components/reviews/Reviews";
 import "./App.css";
 
 function App() {
@@ -12,8 +14,13 @@ function App() {
       <Header />
       <Routes>
         <Route path="/main-page" element={<MainPage />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/film-info/:id" element={<FilmInfo />} />
+        <Route path="/search" element={<Search />}>
+          {/* <Route path="film-info/:id" element={<FilmInfo />} /> */}
+        </Route>
+        <Route path="/film-info/:id" element={<FilmInfo />}>
+          <Route path="casts" element={<Casts />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

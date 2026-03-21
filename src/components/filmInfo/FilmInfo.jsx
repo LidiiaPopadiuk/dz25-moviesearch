@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { NavLink } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom"
 import noImage from '../../img/noImage.png'
 import './FilmInfo.css'
 export const FilmInfo = () => {
@@ -48,11 +48,22 @@ export const FilmInfo = () => {
                             <NavLink to="/search" className="btn3">
                                 ← Back
                             </NavLink>
-                            <button className="btn">Casts</button>
-                            <button className="btn">Reviews</button>
+                            <NavLink onClick={() => {
+                                window.scrollTo({
+                                    top: 750,
+                                    behavior: "smooth"
+                                })
+                            }} to="casts" className="btn">Casts</NavLink>
+                            <NavLink onClick={() => {
+                                window.scrollTo({
+                                    top: 750,
+                                    behavior: "smooth"
+                                })
+                            }} to="reviews" className="btn">Reviews</NavLink>
                         </div>
                     </div>
                 </div>
+                <Outlet />
             </div>
         </section>
     )
