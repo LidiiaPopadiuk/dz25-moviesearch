@@ -34,10 +34,10 @@
   line-height: 1.6;
 }
 
-
 .noReviews {
-  margin-top: 30px;
   text-align: center;
-  font-size: 18px;
-  color: #94a3b8;
+  font-size: 1.2rem;
+  color: #ff4d4f;
+  margin-top: 20px;
+  font-weight: bold;
 }
