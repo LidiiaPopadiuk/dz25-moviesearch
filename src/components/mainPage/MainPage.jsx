@@ -31,7 +31,7 @@ export const MainPage = () => {
                 <ul className='filmsList'>
                     {todayFilms.map(film => {
                         return <li className='filmsItem' key={film.id}>
-                            <NavLink to={`/film-info/${film.id}`}>
+                            <NavLink to={`/movies/${film.id}`}>
                                 <img src={film.poster_path
                                     ? `https://image.tmdb.org/t/p/w300${film.poster_path}`
                                     : noImage}

@@ -14,10 +14,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/search" element={<Search />}>
+        <Route path="/movies" element={<Search />}>
           {/* <Route path="film-info/:id" element={<FilmInfo />} /> */}
         </Route>
-        <Route path="/film-info/:id" element={<FilmInfo />}>
+        <Route path="/movies/:id" element={<FilmInfo />}>
           <Route path="casts" element={<Casts />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>

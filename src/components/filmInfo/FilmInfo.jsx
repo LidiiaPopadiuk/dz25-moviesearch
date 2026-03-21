@@ -45,7 +45,7 @@ export const FilmInfo = () => {
                             </div>
                         </div>
                         <div className="btnWrapper">
-                            <NavLink to="/search" className="btn3">
+                            <NavLink to="/movies" className="btn3">
                                 ← Back
                             </NavLink>
                             <NavLink onClick={() => {

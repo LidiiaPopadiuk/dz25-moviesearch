@@ -25,7 +25,7 @@ export const Header = () => {
                     <NavLink to="/" className="logo">🎬 MovieApp</NavLink>
                     <ul className="nav">
                         <StyledLink to="/">Home</StyledLink>
-                        <StyledLink to="/search">Movies</StyledLink>
+                        <StyledLink to="/movies">Movies</StyledLink>
                     </ul>
                 </div>
             </div>

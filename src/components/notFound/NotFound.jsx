@@ -9,7 +9,7 @@ export const NotFound = () => {
         <h2>Oops! Page not found</h2>
         <p>Looks like this page doesn’t exist or was moved.</p>
 
-        <Link to="/main-page" className="home-btn">
+        <Link to="/" className="home-btn">
           🔙 Go Home
         </Link>
       </div>
