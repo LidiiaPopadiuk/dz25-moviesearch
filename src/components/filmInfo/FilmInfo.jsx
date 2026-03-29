@@ -8,6 +8,7 @@ export const FilmInfo = () => {
     const { id } = useParams()
     const [detail, setDetail] = useState([])
     const navigate = useNavigate()
+    console.log(navigate)
 
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
 
