@@ -1,21 +1,15 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams, useNavigate, useLocation } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 import { NavLink, Outlet } from "react-router-dom"
 import noImage from '../../img/noImage.png'
 import './FilmInfo.css'
- const FilmInfo = () => {
+const FilmInfo = () => {
     const { id } = useParams()
     const [detail, setDetail] = useState([])
-    const navigate = useNavigate()
     const location = useLocation()
-    // console.log(navigate.state = {from: location})
-    // console.log(location);
 
-    const backPath = location.state?.from.pathname || "/"
-    // console.log(backPath);
-    
-    
+    const backLink = location.state?.from ?? "/";
 
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
 
@@ -54,7 +48,7 @@ import './FilmInfo.css'
                             </div>
                         </div>
                         <div className="btnWrapper">
-                            <NavLink className="btn3" to={backPath}>
+                            <NavLink className="btn3" to={backLink}>
                                 ← Back
                             </NavLink>
                             <NavLink onClick={() => {
@@ -64,7 +58,9 @@ import './FilmInfo.css'
                                         behavior: "smooth"
                                     })
                                 }, 300)
-                            }} to="casts" className="btn">Casts</NavLink>
+                            }} to="casts"
+                                state={location.state}
+                                className="btn">Casts</NavLink>
                             <NavLink onClick={() => {
                                 setTimeout(() => {
                                     window.scrollTo({
@@ -72,7 +68,9 @@ import './FilmInfo.css'
                                         behavior: "smooth"
                                     })
                                 }, 300)
-                            }} to="reviews" className="btn">Reviews</NavLink>
+                            }} to="reviews"
+                                state={location.state}
+                                className="btn">Reviews</NavLink>
                         </div>
                     </div>
                 </div>

@@ -2,11 +2,11 @@ import axios from 'axios'
 import './MainPage.css'
 import { useState, useEffect } from 'react'
 import noImage from '../../img/noImage.png'
-import { NavLink } from 'react-router-dom'
- const MainPage = () => {
+import { NavLink, useLocation } from 'react-router-dom'
+const MainPage = () => {
 
     const [todayFilms, setTodayFilms] = useState([])
-
+    const location = useLocation();
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
     const mainAPI = `https://api.themoviedb.org/3/trending/movie/day?api_key=${myAPI}`
 
@@ -31,7 +31,10 @@ import { NavLink } from 'react-router-dom'
                 <ul className='filmsList'>
                     {todayFilms.map(film => {
                         return <li className='filmsItem' key={film.id}>
-                            <NavLink to={`/movies/${film.id}`}>
+                            <NavLink
+                                to={`/movies/${film.id}`}
+                                state={{ from: location }}
+                            >
                                 <img src={film.poster_path
                                     ? `https://image.tmdb.org/t/p/w300${film.poster_path}`
                                     : noImage}

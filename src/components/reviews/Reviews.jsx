@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import './Reviews.css'
 import axios from "axios"
 
- const Reviews = () => {
+const Reviews = () => {
     const { id } = useParams()
     const [reviews, setReviews] = useState([])
 

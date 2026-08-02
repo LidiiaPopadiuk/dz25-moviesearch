@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import noImage from '../../img/noImage.png'
-import { NavLink, useLocation, useParams, useSearchParams } from 'react-router-dom'
+import { NavLink, useLocation, useSearchParams } from 'react-router-dom'
 import './Search.css'
- const Search = () => {
+const Search = () => {
     const [query, setQuery] = useState('')
     const [hasSearched, setHasSearched] = useState(false)
     const [searchFilm, setSearchFilm] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
     const location = useLocation()
     console.log(location);
-    
+
 
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
 
@@ -18,28 +18,18 @@ import './Search.css'
         e.preventDefault()
         if (!query) return
         setSearchParams({ query })
-        // try {
-        //     const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=${myAPI}&query=${query}`
-        //     const films = await axios.get(searchAPI)
-        //     setSearchFilm(films.data.results)
-        //     setHasSearched(true)
-        //     setSearchParams({query})
-        //     setQuery("")
-        // } catch (err) {
-        //     console.log(err);
-        // }
     }
 
     useEffect(() => {
         const queryFromUrl = searchParams.get('query')
         if (!queryFromUrl) return
+        setQuery(queryFromUrl);
 
         const fetchData = async () => {
             const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=${myAPI}&query=${queryFromUrl}`
             const films = await axios.get(searchAPI)
             setSearchFilm(films.data.results)
             setHasSearched(true)
-            setQuery("")
         }
         fetchData()
     }, [searchParams])
@@ -66,7 +56,7 @@ import './Search.css'
                     {searchFilm.map(film => {
                         return <li className='itemFilms' key={film.id}>
 
-                            <NavLink to={`/movies/${film.id}`} state={{from: location}}>
+                            <NavLink to={`/movies/${film.id}`} state={{ from: location }}>
                                 <img
                                     src={film.poster_path
                                         ? `https://image.tmdb.org/t/p/w300${film.poster_path}`
