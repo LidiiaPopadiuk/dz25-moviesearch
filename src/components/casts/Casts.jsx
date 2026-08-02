@@ -4,7 +4,7 @@ import noImage from '../../img/noImage.png'
 import './Casts.css'
 import axios from "axios"
 
-export const Casts = () => {
+ const Casts = () => {
     const { id } = useParams()
     const [casts, setCasts] = useState([])
 
@@ -41,3 +41,5 @@ export const Casts = () => {
         </ul>
     )
 }
+
+export default Casts

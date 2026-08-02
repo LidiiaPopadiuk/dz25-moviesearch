@@ -3,7 +3,7 @@ import './MainPage.css'
 import { useState, useEffect } from 'react'
 import noImage from '../../img/noImage.png'
 import { NavLink } from 'react-router-dom'
-export const MainPage = () => {
+ const MainPage = () => {
 
     const [todayFilms, setTodayFilms] = useState([])
 
@@ -49,3 +49,5 @@ export const MainPage = () => {
     )
 
 }
+
+export default MainPage

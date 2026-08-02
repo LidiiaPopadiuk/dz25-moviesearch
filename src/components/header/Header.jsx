@@ -17,7 +17,7 @@ cursor: pointer;
     font-weight: bold;
   }
 `;
-export const Header = () => {
+ const Header = () => {
     return (
         <header className="header">
             <div className="container">
@@ -32,3 +32,5 @@ export const Header = () => {
         </header>
     )
 }
+
+export default Header

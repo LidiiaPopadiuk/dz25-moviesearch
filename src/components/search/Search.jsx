@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import noImage from '../../img/noImage.png'
-import { NavLink, useParams, useSearchParams } from 'react-router-dom'
+import { NavLink, useLocation, useParams, useSearchParams } from 'react-router-dom'
 import './Search.css'
-export const Search = () => {
+ const Search = () => {
     const [query, setQuery] = useState('')
     const [hasSearched, setHasSearched] = useState(false)
     const [searchFilm, setSearchFilm] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
+    const location = useLocation()
+    console.log(location);
+    
 
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
 
@@ -63,7 +66,7 @@ export const Search = () => {
                     {searchFilm.map(film => {
                         return <li className='itemFilms' key={film.id}>
 
-                            <NavLink to={`/movies/${film.id}`}>
+                            <NavLink to={`/movies/${film.id}`} state={{from: location}}>
                                 <img
                                     src={film.poster_path
                                         ? `https://image.tmdb.org/t/p/w300${film.poster_path}`
@@ -83,3 +86,5 @@ export const Search = () => {
         </section>
     )
 }
+
+export default Search

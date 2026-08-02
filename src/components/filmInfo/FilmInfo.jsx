@@ -1,14 +1,21 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 import { NavLink, Outlet } from "react-router-dom"
 import noImage from '../../img/noImage.png'
 import './FilmInfo.css'
-export const FilmInfo = () => {
+ const FilmInfo = () => {
     const { id } = useParams()
     const [detail, setDetail] = useState([])
     const navigate = useNavigate()
-    console.log(navigate)
+    const location = useLocation()
+    // console.log(navigate.state = {from: location})
+    // console.log(location);
+
+    const backPath = location.state?.from.pathname || "/"
+    // console.log(backPath);
+    
+    
 
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
 
@@ -47,7 +54,7 @@ export const FilmInfo = () => {
                             </div>
                         </div>
                         <div className="btnWrapper">
-                            <NavLink className="btn3" onClick={() => navigate(-1)}>
+                            <NavLink className="btn3" to={backPath}>
                                 ← Back
                             </NavLink>
                             <NavLink onClick={() => {
@@ -74,3 +81,5 @@ export const FilmInfo = () => {
         </section>
     )
 }
+
+export default FilmInfo
